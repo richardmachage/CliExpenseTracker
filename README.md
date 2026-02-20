@@ -10,14 +10,21 @@ This project uses the Gradle wrapper.
 Ensure you have a JDK (version 21 or higher) installed.
 
 **Clone the repository**  
-`git clone https://github.com/richardmachage/CliExpenseTracker.git` 
+```bash 
+git clone https://github.com/richardmachage/CliExpenseTracker.git
+``` 
+
 
 **Run the application:**  
 Execute the following command to start the interactive CLI session.  
-`./gradlew run -q --console=plain`
+```bash 
+./gradlew run -q --console=plain`
+```
 
 **To run the unit tests:**  
-`./gradlew test`
+```bash 
+./gradlew test`
+```
 
 ## Architectural Choices
 
