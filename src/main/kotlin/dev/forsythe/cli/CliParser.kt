@@ -2,7 +2,6 @@ package dev.forsythe.cli
 
 import dev.forsythe.utils.toInstantFromDate
 import java.math.BigDecimal
-import java.time.Instant
 
 object CliParser {
     fun parse(input: String): CliCommand {
@@ -48,7 +47,7 @@ object CliParser {
         val amount = try {
             BigDecimal(amountStr)
         }
-        catch (e: Exception) {
+        catch (_: Exception) {
             return CliCommand.Invalid("Invalid amount: $amountStr\nUsage: add <amount> <category> [description] [date]")
         }
 
