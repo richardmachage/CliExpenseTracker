@@ -7,6 +7,10 @@ import dev.forsythe.domain.SummaryUseCase
 import dev.forsythe.utils.toFormattedDate
 import kotlin.fold
 
+
+/**
+ * This defines the flow between the parsed CLI commands and the Domain Layer. Simply acts as the interface bridge
+ */
 class CommandDispatcher(
     private val addExpenseUseCase: AddExpenseUseCase,
     private val listExpensesUseCase: ListExpensesUseCase,

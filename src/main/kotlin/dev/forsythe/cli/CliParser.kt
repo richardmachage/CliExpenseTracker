@@ -3,6 +3,10 @@ package dev.forsythe.cli
 import dev.forsythe.utils.toInstantFromDate
 import java.math.BigDecimal
 
+
+/**
+ * Responsible for transforming raw string input into the CliCommand objects, with the relevant arguments.
+ */
 object CliParser {
     fun parse(input: String): CliCommand {
         val trimmedInput = input.trim()
@@ -16,15 +20,15 @@ object CliParser {
             matchResult.groupValues[1].ifBlank { matchResult.groupValues[2] }
         }.toList()
 
-        val commandName  = parts.firstOrNull()?.lowercase() ?: return CliCommand.Unknown
+        val commandName = parts.firstOrNull()?.lowercase() ?: return CliCommand.Unknown
         val args = parts.drop(1)
 
         val command = when (commandName) {
-            "add" -> parseAdd(args)
-            "delete" -> parseDelete(args)
-            "list" -> parseList(args)
+            "add"     -> parseAdd(args)
+            "delete"  -> parseDelete(args)
+            "list"    -> parseList(args)
             "summary" -> parseSummary(args)
-            else -> CliCommand.Unknown
+            else      -> CliCommand.Unknown
         }
 
         return command
@@ -58,7 +62,8 @@ object CliParser {
                     ?: return CliCommand.Invalid(
                         "Invalid date format. Use yyyy-MM-dd \nUsage: add <amount> <category> [description] [date]"
                     )
-            } catch (e: Exception) {
+            }
+            catch (e: Exception) {
                 return CliCommand.Invalid(
                     "Error: ${e.message}\nUsage: add <amount> <category> [description] [date]"
                 )
@@ -72,8 +77,6 @@ object CliParser {
         if (args.isEmpty()) {
             return CliCommand.Invalid("Usage: delete <id>")
         }
-
-
         val idStr = args[0]
         val id = idStr.toIntOrNull()
 
