@@ -2,7 +2,6 @@
 
 This is a command-line expense tracker built in Kotlin. 
 It runs entirely in-memory for a single session and allows users to add, list, summarize, and delete expenses.
-The application is designed to demonstrate idiomatic Kotlin, robust error handling, and clean architecture.
 
 ## How to Build and Run
 
